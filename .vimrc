@@ -614,3 +614,5 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
+au BufNewFile,BufRead *.lua.txt set filetype=lua
+autocmd VimEnter * NERDTree | wincmd p
