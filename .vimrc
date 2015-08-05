@@ -25,8 +25,10 @@ Bundle 'Command-T'
 "Bundle 'YankRing.vim'
 "Bundle 'kien/ctrlp.vim'
 "Bundle 'molokai'
-Bundle 'colorizer'
-"Bundle 'git://github.com/altercation/vim-colors-solarized.git'
+"Bundle 'colorizer'
+Bundle 'git://github.com/altercation/vim-colors-solarized.git'
+Bundle 'ack.vim'
+Bundle 'git@github.com:trotter/autojump.vim.git'
 "Bundle 'python.vim'
 "Bundle 'pyflakes.vim'
 "Bundle 'plasticboy/vim-markdown'
@@ -225,13 +227,10 @@ set guioptions-=m           " 隐藏菜单栏
 
 
 " 设置在状态行显示的信息
-set foldcolumn=0
-
-set foldmethod=indent
-
-set foldlevel=3
-
-set foldenable              " 开始折叠
+"set foldcolumn=0
+"set foldmethod=indent
+"set foldlevel=3
+"set foldenable              " 开始折叠
 
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
@@ -371,12 +370,20 @@ au BufNewFile,BufRead *.lua.txt set filetype=lua
 autocmd VimEnter * NERDTree | wincmd p
 
 let NERDTreeIgnore = ['\.meta$']
-
+let NERDTreeShowBookmarks=1
 
 " the solarized setting
-"let g:solarized_termcolors=256
-"syntax enable
-"set background=dark
-"colorscheme solarized
+let g:solarized_termcolors=256
+syntax enable
+set background=dark
+colorscheme solarized
 
+
+let g:fuf_file_exclude = '\v\~$|\.meta$'
+let g:fuf_coveragefile_exclude = '\v\~$|\.meta$'
+
+
+"map <F2> :echo 'Current time is ' . strftime('%c')<CR>
+map <C-G> <Esc>vey<Esc>:FufCoverageFile <C-R>"<CR>
+map <C-F> <Esc>vey<Esc>:Ack <C-R>"<CR>
 
